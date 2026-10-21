@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Holistic Me.Life – Hormoncoaching für Mütter</title>
+<meta name="description" content="Hormon- und Lifestyle-Coaching für Mütter mit Anna-Luise, Hormoncoach und Personal Trainerin aus Kaiserslautern.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,400i&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f5f0e6;
+  --paper-2: #ebe4d6;
+  --ink: #17323d;
+  --soft: #55666b;
+  --stage: #2c6176;
+  --stage-ink: #f5f0e6;
+  --gold: #d3a547;
+  --marker: #ecd49a;
+
+  --step-small: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-head: clamp(2rem, 1.5rem + 1.4vw, 2.75rem);
+  --step-hero: clamp(2.75rem, 1.8rem + 2.6vw, 4.25rem);
+
+  --r: 20px;
+  --edge: 12px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  margin: 0; background: var(--paper-2); color: var(--ink);
+  font-family: "Switzer", system-ui, sans-serif; font-size: var(--step-body);
+  line-height: 1.5; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 4px; }
+a:hover { color: var(--stage); }
+h1, h2, h3 { font-weight: 400; letter-spacing: -0.03em; line-height: 1.08; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--marker); }
+
+.page { display: grid; grid-template-columns: 1fr 1fr; gap: var(--edge); padding: var(--edge); }
+
+/* reading sheet */
+.sheet { background: var(--paper); border-radius: var(--r); padding: 0 clamp(24px, 5vw, 72px); }
+.col { max-width: 520px; margin-inline: auto; }
+
+.top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding: 24px 0; font-size: var(--step-small); }
+.top a { text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+.top .r { justify-self: end; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 1rem; letter-spacing: -0.01em; }
+.brand svg { width: 34px; height: 34px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+  min-height: 52px; padding: 0 1.6em; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--stage); color: #fff; font: inherit; font-weight: 500; white-space: nowrap;
+  text-decoration: none; transition: background-color .2s, transform .2s var(--ease);
+}
+.btn:hover { background: var(--ink); color: #fff; }
+.btn:active { transform: scale(.97); }
+.btn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); transition: transform .3s var(--ease); }
+.btn:hover .dot { transform: scale(1.6); }
+
+.hero { min-height: calc(100svh - 110px); display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 40px 0 96px; }
+.hero h1 { font-size: var(--step-hero); }
+.hero .sub { font-size: var(--step-lead); line-height: 1.4; margin: 32px auto 0; max-width: 30ch; }
+.hero .actions { margin-top: 40px; display: grid; justify-items: center; gap: 18px; }
+
+section { padding-block: clamp(96px, 12vw, 160px); }
+section h2 { font-size: var(--step-head); }
+.lead { margin-top: 20px; color: var(--soft); max-width: 40ch; }
+
+/* energy check */
+.check-list { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 8px; }
+.check-list button {
+  width: 100%; display: flex; align-items: center; gap: 16px; text-align: left;
+  min-height: 60px; padding: 12px 20px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--paper-2); color: var(--ink); font: inherit;
+  transition: background-color .25s, color .25s, transform .2s var(--ease);
+}
+.check-list button:hover { background: #e2d9c6; }
+.check-list button:active { transform: scale(.985); }
+.check-list .o { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); transition: background-color .25s, transform .3s var(--ease); }
+.check-list button[aria-pressed="true"] { background: var(--stage); color: #fff; }
+.check-list button[aria-pressed="true"] .o { background: var(--gold); transform: scale(1.15); }
+.score { margin-top: 24px; padding: 24px 26px; background: var(--ink); color: var(--paper); border-radius: var(--r); display: grid; grid-template-columns: 76px 1fr; gap: 20px; align-items: center; }
+.score svg { width: 76px; height: 76px; transform: rotate(-90deg); }
+.score .track { stroke: #2b4a55; } .score .fill { stroke: var(--gold); transition: stroke-dashoffset .6s var(--ease); }
+.score .note { grid-column: 1 / -1; font-size: var(--step-small); opacity: .8; }
+
+/* letter */
+.letter .face { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.letter h2 { margin-top: 28px; }
+.letter p { margin-top: 1.1em; }
+.letter mark { background: var(--marker); color: inherit; padding: 0 .15em; }
+.sign { margin-top: 36px; }
+.sign b { display: block; font-weight: 400; font-style: italic; font-size: 1.5rem; letter-spacing: -0.02em; }
+.sign span { font-size: var(--step-small); color: var(--soft); }
+
+/* slip */
+.slip-wrap { background: var(--stage); border-radius: var(--r); padding: 40px clamp(16px, 4vw, 40px) 48px; margin-top: 40px; }
+.slip { background: var(--paper); padding: 28px 26px 40px; font-variant-numeric: tabular-nums; font-size: 1rem;
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 12px),96% 100%,92% calc(100% - 12px),88% 100%,84% calc(100% - 12px),80% 100%,76% calc(100% - 12px),72% 100%,68% calc(100% - 12px),64% 100%,60% calc(100% - 12px),56% 100%,52% calc(100% - 12px),48% 100%,44% calc(100% - 12px),40% 100%,36% calc(100% - 12px),32% 100%,28% calc(100% - 12px),24% 100%,20% calc(100% - 12px),16% 100%,12% calc(100% - 12px),8% 100%,4% calc(100% - 12px),0 100%); }
+.slip h3 { font-size: 1rem; font-weight: 500; letter-spacing: 0; margin: 28px 0 10px; }
+.slip h3:first-child { margin-top: 0; }
+.slip .row { display: flex; align-items: baseline; gap: 10px; padding: 5px 0; }
+.slip .row .lead-dots { flex: 1; height: 4px; background-image: radial-gradient(circle, var(--soft) 1.4px, transparent 1.6px); background-size: 8px 4px; opacity: .5; transform: translateY(-3px); }
+.slip .row span:last-child { color: var(--soft); white-space: nowrap; }
+.slip .total { margin: 24px -26px 0; background: var(--ink); color: var(--paper); min-height: 44px; padding: 10px 26px; display: flex; justify-content: space-between; gap: 12px; }
+
+/* themes */
+.themes { container-type: inline-size; }
+.giant { font-size: 25cqw; line-height: .8; letter-spacing: -0.06em; margin-left: -0.05em; }
+.bars { display: grid; gap: 6px; margin-top: 24px; }
+.bars details { background: var(--paper-2); border-radius: 14px; }
+.bars summary { list-style: none; cursor: pointer; min-height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-weight: 500; }
+.bars summary::-webkit-details-marker { display: none; }
+.pm { position: relative; flex: none; width: 14px; height: 14px; }
+.pm::before, .pm::after { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 2px; background: currentColor; transition: transform .3s var(--ease); }
+.pm::after { transform: rotate(90deg); }
+details[open] > summary .pm::after { transform: rotate(0); }
+.bars summary:hover { color: var(--stage); }
+.bars details p { padding: 0 20px 20px; max-width: 46ch; }
+
+/* prices */
+.menu { margin-top: 40px; display: grid; gap: 48px; }
+.menu h3 { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; }
+.item + .item { margin-top: 22px; }
+.item .line { display: flex; justify-content: space-between; gap: 16px; font-size: 1.1875rem; font-variant-numeric: tabular-nums; }
+.item p { color: var(--soft); max-width: 36ch; margin-top: 4px; font-size: 1rem; }
+.prices-cta { margin-top: 40px; }
+
+/* faq */
+.facts { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 6px; font-size: 1.125rem; }
+.faq-list { margin-top: 36px; display: grid; gap: 20px; }
+.faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 44px; font-size: 1.1875rem; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary:hover { color: var(--stage); }
+.faq-list p { color: var(--soft); margin-top: 8px; max-width: 46ch; }
+.chev { flex: none; width: 10px; height: 10px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translate(-2px,-2px); transition: transform .3s var(--ease); }
+details[open] .chev { transform: rotate(-135deg); }
+
+/* close */
+.close { padding-top: 30svh; padding-bottom: 18svh; }
+.close p { font-size: var(--step-lead); line-height: 1.4; max-width: 30ch; }
+.close .btn { margin-top: 24px; }
+.close .alt { margin-left: 20px; }
+footer { padding: 0 0 30px; display: grid; gap: 8px; font-size: var(--step-small); color: var(--soft); }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+footer nav a { color: var(--ink); text-decoration: none; }
+footer nav a:hover { text-decoration: underline; }
+
+/* stage */
+.stage { position: sticky; top: var(--edge); height: calc(100svh - 2 * var(--edge)); border-radius: var(--r); background: var(--stage); color: var(--stage-ink); overflow: hidden; display: grid; place-items: center; }
+.stage .ring { position: relative; width: min(78%, 66svh); aspect-ratio: 1; }
+.stage .ring::before { content: ""; position: absolute; inset: -5%; border-radius: 50%; border: 10px solid var(--gold); opacity: .9; }
+.stage .ring .frame { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #24505f; }
+.stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; transform: scale(1.06); }
+.stage img.on { opacity: 1; animation: drift 18s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: scale(1.06); } to { transform: scale(1.14) translate(-1.5%, 1%); } }
+.stage .bar { position: absolute; left: 0; right: 0; bottom: 0; min-height: 56px; background: var(--paper); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; font-size: var(--step-small); }
+.stage .cap { position: absolute; top: 22px; left: 24px; right: 24px; font-size: var(--step-small); opacity: .9; transition: opacity .4s; }
+
+.rv { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.rv.in, .no-js .rv { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .rv { opacity: 1; transform: none; }
+}
+
+@media (max-width: 860px) {
+  .page { grid-template-columns: minmax(0, 1fr); }
+  .stage .bar { display: none; }
+  .btn { white-space: normal; text-align: center; padding-block: 10px; }
+  .stage-col { order: -1; position: sticky; top: var(--edge); z-index: 0; height: 56svh; }
+  .stage { position: relative; top: 0; height: 56svh; }
+  .stage .ring { width: min(64%, 40svh); }
+  .sheet { position: relative; z-index: 1; margin-top: -36px; padding: 0 20px; }
+  .hero { min-height: 0; padding: 24px 0 64px; }
+  .top { grid-template-columns: 1fr auto; }
+  .top .l { display: none; }
+  .hero .actions .btn { width: 100%; }
+  .close { padding-top: 20svh; padding-bottom: 14svh; }
+  .close .alt { display: inline-block; margin: 16px 0 0; }
+}
+</style>
+</head>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="globe" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="none" stroke="#2c6176" stroke-width="6"/>
+    <path d="M50 6 a22 22 0 0 1 0 44 a22 22 0 0 0 0 44" fill="none" stroke="#d3a547" stroke-width="5"/>
+    <circle cx="50" cy="28" r="6" fill="#d3a547"/><circle cx="50" cy="72" r="6" fill="#d3a547"/>
+  </symbol>
+</svg>
+
+<div class="page">
+  <main class="sheet">
+    <div class="col">
+      <header class="top">
+        <a class="l" href="#ueber-mich">Über mich</a>
+        <a class="brand" href="#top" aria-label="The Holistic Me.Life, zum Anfang"><svg aria-hidden="true"><use href="#globe"/></svg>The Holistic Me.Life</a>
+        <a class="r" href="#preise">Preise</a>
+      </header>
+
+      <div class="hero" id="top" data-img="0" data-cap="Anna-Luise, Hormoncoach und Personal Trainerin">
+        <h1 class="rv">Wieder Kraft für dich.</h1>
+        <p class="sub rv">Hormon- und Lifestyle-Coaching für Mütter. Mit Anna-Luise aus Kaiserslautern.</p>
+        <div class="actions rv">
+          <a class="btn" href="#termin"><span class="dot" aria-hidden="true"></span>Kostenloses Kennenlerngespräch</a>
+          <a href="#check">Erst den Energie-Check machen</a>
+        </div>
+      </div>
+
+      <section id="check" data-img="3" data-cap="Mut, Abenteuer, Balance" aria-labelledby="h-check">
+        <h2 id="h-check" class="rv">Kennst du das?</h2>
+        <p class="lead rv">Du hast alles im Griff, nur dir selbst fehlt die Energie. Tipp an, was auf dich zutrifft.</p>
+        <ul class="check-list">
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Ich wache schon müde auf.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Am Nachmittag bricht meine Energie ein.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Ich habe ständig Heißhunger auf Süßes.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Ich schlafe schlecht oder wache nachts auf.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Vor meiner Periode bin ich nicht ich selbst.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Für Sport fehlt mir die Kraft.</button></li>
+          <li class="rv"><button type="button" aria-pressed="false"><span class="o"></span>Für mich selbst bleibt keine Zeit.</button></li>
+        </ul>
+        <div class="score" aria-live="polite">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="40" fill="none" stroke-width="14"/><circle class="fill" cx="50" cy="50" r="40" fill="none" stroke-width="14" stroke-dasharray="251.3" stroke-dashoffset="251.3" stroke-linecap="round"/></svg>
+          <p id="result">Tipp die Sätze an, die zu dir passen.</p>
+          <p class="note">Keine Diagnose. Bei Beschwerden geh bitte zu deiner Ärztin oder deinem Arzt.</p>
+        </div>
+      </section>
+
+      <section id="ueber-mich" class="letter" data-img="1" data-cap="Anna-Luise in ihrer schwersten Zeit" aria-labelledby="h-letter">
+        <img class="face rv" src="img/portrait.jpg" width="210" height="220" alt="Anna-Luise">
+        <h2 id="h-letter" class="rv">Ich war selbst ganz unten.</h2>
+        <p class="rv">Jeden Tag Schwindel. Krankenhaus, etliche Untersuchungen. Und Abende, an denen ich zu schwach war, meinen Kindern im Bett vorzulesen. Ich dachte, mein Leben wäre vorbei.</p>
+        <p class="rv">Ich bin alleinerziehend, ich arbeite, ich bin Frühaufsteherin. Ich kenne das Gefühl, für alle da zu sein und selbst auf Reserve zu laufen.</p>
+        <p class="rv">Schritt für Schritt habe ich zurück zu meiner Kraft gefunden: mit Essen, das satt macht, mit Bewegung drinnen und draußen, mit Schlaf und mit einem neuen Blick auf mich. Heute bin ich Hormoncoach und Personal Trainerin.</p>
+        <p class="rv">Ich begleite Mütter auf genau diesem Weg. <mark>Ohne Verzicht-Diät und ohne Druck</mark>, mit einem Plan, der in deinen Alltag passt.</p>
+        <p class="sign rv"><b>Anna-Luise</b><span>39, aus Kaiserslautern</span></p>
+      </section>
+
+      <section id="ablauf" data-img="4" data-cap="Bewegung, die in deinen Alltag passt" aria-labelledby="h-steps">
+        <h2 id="h-steps" class="rv">So gehen wir vor</h2>
+        <p class="lead rv">Kein Programm von der Stange. Erst schauen wir, wo du stehst, dann bauen wir in kleinen Schritten.</p>
+        <div class="slip-wrap rv">
+          <div class="slip">
+            <h3>Zum Start</h3>
+            <div class="row"><span>Kennenlerngespräch</span><span class="lead-dots"></span><span>30 Min.</span></div>
+            <div class="row"><span>Ausführliches Erstgespräch</span><span class="lead-dots"></span><span>90 Min.</span></div>
+            <div class="row"><span>Dein persönlicher Plan</span><span class="lead-dots"></span><span>Woche 1</span></div>
+            <h3>Jede Woche</h3>
+            <div class="row"><span>Call per Video</span><span class="lead-dots"></span><span>45 Min.</span></div>
+            <div class="row"><span>Kurztraining für zu Hause</span><span class="lead-dots"></span><span>20 Min.</span></div>
+            <div class="row"><span>Nachrichten bei Fragen</span><span class="lead-dots"></span><span>jederzeit</span></div>
+            <h3>Zum Abschluss</h3>
+            <div class="row"><span>Rückblick und Plan für danach</span><span class="lead-dots"></span><span>Woche 12</span></div>
+            <p class="total"><span>Du kennst, was dir guttut</span><span>3 Monate</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="themes" data-img="2" data-cap="Abenteuer gehört zum Plan" aria-labelledby="h-themes">
+        <h2 id="h-themes" class="giant rv">Themen</h2>
+        <div class="bars">
+          <details name="t" open class="rv"><summary>Hormone und Zyklus<span class="pm" aria-hidden="true"></span></summary><p>Verstehen, was in deinem Körper passiert, und den Alltag danach ausrichten statt dagegen.</p></details>
+          <details name="t" class="rv"><summary>Ernährung ohne Diät<span class="pm" aria-hidden="true"></span></summary><p>Gesund essen, das schnell geht und der ganzen Familie schmeckt. Ohne Kalorienzählen.</p></details>
+          <details name="t" class="rv"><summary>Bewegung, drinnen und draußen<span class="pm" aria-hidden="true"></span></summary><p>Krafttraining für zu Hause, Spaziergänge, Rad, Kajak. Was Spaß macht, bleibt.</p></details>
+          <details name="t" class="rv"><summary>Schlaf und Stress<span class="pm" aria-hidden="true"></span></summary><p>Abendroutinen, die wirken, und kleine Pausen im Tag, auch mit Kindern.</p></details>
+          <details name="t" class="rv"><summary>Mindset<span class="pm" aria-hidden="true"></span></summary><p>Raus aus dem Funktionieren. Grenzen setzen, Hilfe annehmen, dich wieder wichtig nehmen.</p></details>
+          <details name="t" class="rv"><summary>Selfcare und Abenteuer<span class="pm" aria-hidden="true"></span></summary><p>Mut zu Neuem: ein Ausflug, eine Reise, ein Abend nur für dich.</p></details>
+        </div>
+      </section>
+
+      <section id="preise" data-img="5" data-cap="Zertifizierte Hormoncoach" aria-labelledby="h-prices">
+        <h2 id="h-prices" class="rv">Preise</h2>
+        <div class="menu">
+          <div class="rv">
+            <h3>Für Mütter</h3>
+            <div class="item"><div class="line"><span>Kennenlerngespräch</span><span>0 €</span></div><p>30 Minuten per Video. Danach weißt du, ob es passt.</p></div>
+            <div class="item"><div class="line"><span>Einzelsession</span><span>120</span></div><p>90 Minuten mit drei konkreten nächsten Schritten.</p></div>
+            <div class="item"><div class="line"><span>Begleitung, 3 Monate</span><span>890</span></div><p>Plan, zwölf Calls und Nachrichten zwischendurch. Ratenzahlung möglich.</p></div>
+          </div>
+          <div class="rv">
+            <h3>Neu: für Männer</h3>
+            <div class="item"><div class="line"><span>Hormoncoaching</span><span>auf Anfrage</span></div><p>Gleicher Ablauf, angepasst an deine Themen.</p></div>
+          </div>
+        </div>
+        <div class="prices-cta rv"><a class="btn" href="#termin"><span class="dot" aria-hidden="true"></span>Platz anfragen</a></div>
+      </section>
+
+      <section id="fragen" data-img="2" data-cap="Kaiserslautern und online" aria-labelledby="h-faq">
+        <h2 id="h-faq" class="rv">Gute Fragen</h2>
+        <ul class="facts rv"><li>Kaiserslautern und online per Video</li><li>Termine montags bis freitags, auch früh morgens</li><li>Ratenzahlung möglich</li></ul>
+        <div class="faq-list">
+          <details name="f" class="rv"><summary>Ersetzt das Coaching einen Arztbesuch?<span class="chev" aria-hidden="true"></span></summary><p>Nein. Ich stelle keine Diagnosen und behandle keine Krankheiten. Bei Beschwerden gehört die Abklärung zu deiner Ärztin oder deinem Arzt.</p></details>
+          <details name="f" class="rv"><summary>Ich habe kaum Zeit. Klappt das trotzdem?<span class="chev" aria-hidden="true"></span></summary><p>Genau dafür ist es gedacht. Wir bauen nur Schritte ein, die in deinen Tag passen, oft 10 bis 20 Minuten.</p></details>
+          <details name="f" class="rv"><summary>Brauche ich Laborwerte?<span class="chev" aria-hidden="true"></span></summary><p>Nein. Wenn du Befunde hast, schauen wir sie gemeinsam an.</p></details>
+          <details name="f" class="rv"><summary>Zahlt die Krankenkasse?<span class="chev" aria-hidden="true"></span></summary><p>In der Regel nicht. Das Coaching ist eine private Leistung.</p></details>
+          <details name="f" class="rv"><summary>Können wir auch zusammen trainieren?<span class="chev" aria-hidden="true"></span></summary><p>Ja, in Kaiserslautern und Umgebung. Als Personal Trainerin zeige ich dir Übungen, die du danach allein machen kannst.</p></details>
+        </div>
+      </section>
+
+      <section id="termin" class="close" data-img="0" data-cap="Bis bald, Anna-Luise" aria-labelledby="h-close">
+        <h2 id="h-close" class="rv">Fang bei dir an.</h2>
+        <p class="rv" style="margin-top:20px">Schreib mir, und wir finden 30 Minuten für ein erstes Gespräch.</p>
+        <div class="rv"><a class="btn" href="mailto:hallo@theholisticme.life?subject=Kennenlerngespr%C3%A4ch"><span class="dot" aria-hidden="true"></span>Kennenlerngespräch buchen</a><a class="alt" href="https://www.instagram.com/theholisticme.life/">Instagram</a></div>
+      </section>
+
+      <footer>
+        <p>The Holistic Me.Life · Coaching für Mütter</p>
+        <nav aria-label="Fußzeile"><a href="#ueber-mich">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preise">Preise</a><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a></nav>
+        <p>© 2026 · Coaching ersetzt keine ärztliche Behandlung.</p>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="stage-col" aria-label="Bilder">
+    <div class="stage">
+      <p class="cap" id="cap">Anna-Luise, Hormoncoach und Personal Trainerin</p>
+      <div class="ring"><div class="frame">
+        <img class="on" src="img/portrait.jpg" width="210" height="220" alt="Anna-Luise sitzt lächelnd im Grünen">
+        <img src="img/tired.jpg" width="361" height="400" alt="Anna-Luise erschöpft in ihrer schwersten Zeit">
+        <img src="img/lake.jpg" width="361" height="360" alt="Blick vom roten Kajak über einen See">
+        <img src="img/raw/logo.jpg" width="513" height="640" alt="" style="object-fit:contain;background:#fff">
+        <img src="img/park.jpg" width="360" height="420" alt="Pumptrack im Park an einem sonnigen Tag">
+        <img src="img/cert.jpg" width="280" height="380" alt="Anna-Luise mit ihrem Zertifikat">
+      </div></div>
+      <p class="bar"><span>Kaiserslautern und online</span><span>Termine Mo bis Fr</span></p>
+    </div>
+  </aside>
+</div>
+
+<script>
+document.body.classList.remove('no-js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const rio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.querySelectorAll('.rv').forEach((k, i) => setTimeout(() => k.classList.add('in'), i * 70));
+  rio.unobserve(e.target);
+}), { threshold: 0.1 });
+document.querySelectorAll('.hero, section').forEach(s => rio.observe(s));
+setTimeout(() => document.querySelectorAll('.rv').forEach(k => k.classList.add('in')), 4000);
+
+// stage follows the section in view
+const imgs = [...document.querySelectorAll('.stage img')];
+const cap = document.getElementById('cap');
+let current = 0;
+function show(i, text) {
+  if (i === current) return;
+  imgs[current].classList.remove('on'); imgs[i].classList.add('on'); current = i;
+  cap.textContent = text;
+}
+const sio = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) show(+e.target.dataset.img, e.target.dataset.cap);
+}), { rootMargin: '-45% 0px -45% 0px' });
+document.querySelectorAll('[data-img]').forEach(s => sio.observe(s));
+
+// energy check
+const btns = [...document.querySelectorAll('.check-list button')];
+const fill = document.querySelector('.score .fill');
+const out = document.getElementById('result');
+const C = 251.3;
+const msgs = [
+  'Tipp die Sätze an, die zu dir passen.',
+  'Ein Punkt. Ein guter Moment, um gegenzusteuern.',
+  'Zwei Punkte. Dein Körper sendet Signale. Es lohnt sich, hinzuschauen.',
+  'Drei Punkte. Viele Mütter erkennen sich hier wieder. Du musst das nicht allein sortieren.',
+  'Vier oder mehr. Du läufst auf Reserve. Lass uns schauen, wo du Energie zurückgewinnst.'
+];
+btns.forEach(b => b.addEventListener('click', () => {
+  b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+  const n = btns.filter(x => x.getAttribute('aria-pressed') === 'true').length;
+  fill.style.strokeDashoffset = C - C * n / btns.length;
+  out.textContent = n ? `${n} von 7. ${msgs[Math.min(n, 4)].split('. ').slice(1).join('. ')}` : msgs[0];
+}));
+</script>
+</body>
+</html>
