@@ -4,9 +4,15 @@ Entwurf einer Website für Anna-Luise, Hormoncoach und Personal Trainerin aus Ka
 
 ## Ansehen
 
+Vorschau, teilbar ohne Anmeldung:
+
+- Übersicht aller Entwürfe: https://goldenspot.github.io/hormon-coach-anna-luise/
+- Version 3 (aktueller Favorit): https://goldenspot.github.io/hormon-coach-anna-luise/v3.html
+- Version 1: https://goldenspot.github.io/hormon-coach-anna-luise/v1.html
+- Version 2: https://goldenspot.github.io/hormon-coach-anna-luise/v2.html
+
 Die Dateien in `site/handy/` sind eigenständig, die Bilder sind eingebettet. Herunterladen und im Browser öffnen:
 
-- Online (Netlify, mit Zugangsschutz): https://holisticme-entwuerfe-7k3q.netlify.app
 - `site/handy/Version-1.html`: breites Layout, großer Kreis als Leitmotiv
 - `site/handy/Version-2.html`: geteilter Bildschirm, links Text, rechts mitlaufendes Bild
 - `site/handy/Version-3.html`: eine Spalte, mittig begrenzt (aktueller Favorit)
