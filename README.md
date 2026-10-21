@@ -6,11 +6,12 @@ Entwurf einer Website für Anna-Luise, Hormoncoach und Personal Trainerin aus Ka
 
 Die Dateien in `site/handy/` sind eigenständig, die Bilder sind eingebettet. Herunterladen und im Browser öffnen:
 
+- Online (Netlify, mit Zugangsschutz): https://holisticme-entwuerfe-7k3q.netlify.app
 - `site/handy/Version-1.html`: breites Layout, großer Kreis als Leitmotiv
 - `site/handy/Version-2.html`: geteilter Bildschirm, links Text, rechts mitlaufendes Bild
 - `site/handy/Version-3.html`: eine Spalte, mittig begrenzt (aktueller Favorit)
 
-Die Quelldateien liegen in `site/` (`index.html`, `v2.html`, `v3.html`), die Bilder in `site/img/`.
+Die Quelldateien liegen in `site/` (`index.html` als Übersicht, `v1.html`, `v2.html`, `v3.html`), die Bilder in `site/img/`.
 
 ## Projektanalyse
 
